@@ -8,7 +8,9 @@ namespace AlgoritmosDePesquisa
         public static void buscaBinaria(List<DataSetEl> dataSet, long roomId)
         {
             int loops = 0;
-            buscaBinaria(dataSet,roomId,0,dataSet.Count-1, ref loops);
+            int index = buscaBinaria(dataSet,roomId,0,dataSet.Count-1, ref loops);
+            
+            Console.WriteLine(dataSet[index]);
             Console.WriteLine(loops);
         }
 
