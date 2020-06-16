@@ -12,20 +12,20 @@ namespace AlgoritmosDePesquisa
             ArvoreBinaria arvoreBinaria = new ArvoreBinaria();
             readFileContent(ref dataSet);
             // busca sequencial
-            Console.WriteLine("busca sequencial " + BuscaSequencial.buscaSequencial(dataSet, 4659998));
             
+            Console.WriteLine("Busca sequencial ");
+            BuscaSequencial.buscaSequencial(dataSet, 4659998);
             // busca binária
-            Console.WriteLine("busca binária " + BuscaBinaria.buscaBinaria(dataSet, 4659998)); // não está funcionando pq precisa de um algoritmo de ordenação antes (pegar do trabalho anterior)
+            List<DataSetEl> dataSetSort = BubbleSort.sort(dataSet);
+            Console.WriteLine("Busca binária "); 
+            BuscaBinaria.buscaBinaria(dataSetSort, 4659998);
             
             // arvore binária
             instaciaArvore(ref arvoreBinaria, dataSet);
+            Console.WriteLine("Arvore binária "); 
             Node retorno = arvoreBinaria.pesquisar(4659998);
-            if (retorno != null)
-            {
-                Console.WriteLine(retorno.elemento);
-            }
-            
-            //
+
+            // 
         }
 
         static void instaciaArvore(ref ArvoreBinaria arvoreBinaria, List<DataSetEl> dataset)

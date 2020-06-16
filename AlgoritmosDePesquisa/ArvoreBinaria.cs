@@ -37,28 +37,36 @@ namespace AlgoritmosDePesquisa
 
         public Node pesquisar(int roomId)
         {
-            return pesquisar(this.raiz, roomId);
+            int loops = 0;
+            Node node = pesquisar(this.raiz, roomId, ref loops);
+            
+            Console.WriteLine(loops);
+            return node;
         } 
         
-        private Node pesquisar(Node raizArvore, int roomId)
+        private Node pesquisar(Node raizArvore, int roomId, ref int loops)
         {
             if (raizArvore == null)
             {
+                loops++;
                 return null;   
             }
 
             if (raizArvore.elemento.room_id == roomId)
             {
+                loops++;
                 return raizArvore;
             }
 
             if (raizArvore.elemento.room_id > roomId)
             {
-                return pesquisar(raizArvore.left, roomId);
+                loops++;
+                return pesquisar(raizArvore.left, roomId, ref loops);
             }
             else
             {
-                return pesquisar(raizArvore.right, roomId);
+                loops++;
+                return pesquisar(raizArvore.right, roomId, ref loops);
             }
         }
 
