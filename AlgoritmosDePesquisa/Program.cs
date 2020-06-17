@@ -6,6 +6,9 @@ namespace AlgoritmosDePesquisa
 {
     internal class Program
     {
+        /*
+         * Classe principal de menu: redireciona o usuário para o algoritmo de pesquisa desejado
+         */
         public static void Main(string[] args)
         {
             List<DataSetEl> dataSetArray = new List<DataSetEl>();
@@ -58,6 +61,9 @@ namespace AlgoritmosDePesquisa
             }
         }
         
+        /*
+         * Instancia a lista encadeada com os elementos do dataset
+         */
         static void instancialistaEnc(ref Lista listaencadeada, List<DataSetEl> dataset)
         {
             foreach (DataSetEl elemento in dataset)
@@ -66,6 +72,9 @@ namespace AlgoritmosDePesquisa
             }
         }
 
+        /*
+         * Instancia a arvore com os elementos do dataset
+         */
         static void instaciaArvore(ref ArvoreBinaria arvoreBinaria, List<DataSetEl> dataset)
         {
             foreach(DataSetEl elemento in dataset)
@@ -74,6 +83,9 @@ namespace AlgoritmosDePesquisa
             }
         }
 
+        /*
+         * Lê o arquivo de dataset e transforma na lista abstrata
+         */
         static void readFileContent(ref List<DataSetEl> dataSetArray)
         {
             try

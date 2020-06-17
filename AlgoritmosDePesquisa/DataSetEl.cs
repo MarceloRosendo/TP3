@@ -17,6 +17,9 @@ namespace AlgoritmosDePesquisa
         public String price { get; set; }
         public String property_type { get; set; }
         
+        /*
+         * Função que imprime as informações sobre os quartos
+         */
         public static void printroom(DataSetEl quarto)
         {
             if (quarto == null)

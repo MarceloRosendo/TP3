@@ -2,6 +2,9 @@ using System;
 
 namespace AlgoritmosDePesquisa
 {
+    /*
+     * Estrutura de dados que organiza os elementos do dataset em componentes de uma lista
+     */
     public class Lista
     {
         private Elemento ini;
@@ -40,6 +43,10 @@ namespace AlgoritmosDePesquisa
             }
             tam++;
         }
+        
+        /* *
+         * Utiliza o encadeamento da estrutura para identificar o quardo desejado
+         */
         public void pesquisar(long roomId)
         {
             int loops = 0;
