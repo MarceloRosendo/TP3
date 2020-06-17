@@ -35,16 +35,25 @@ namespace AlgoritmosDePesquisa
             return raizArvore;
         }
 
-        public Node pesquisar(int roomId)
+        public Node pesquisar(long roomId)
         {
             int loops = 0;
             Node node = pesquisar(this.raiz, roomId, ref loops);
             
-            Console.WriteLine(loops);
+            Console.WriteLine("Comparações = "+loops);
+            if(node != null)
+            {
+                DataSetEl.printroom(node.elemento);
+            }
+            else
+            {
+                DataSetEl.printroom(null);
+            }
+         
             return node;
         } 
         
-        private Node pesquisar(Node raizArvore, int roomId, ref int loops)
+        private Node pesquisar(Node raizArvore, long roomId, ref int loops)
         {
             if (raizArvore == null)
             {

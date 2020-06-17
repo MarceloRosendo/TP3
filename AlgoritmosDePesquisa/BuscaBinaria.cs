@@ -7,11 +7,20 @@ namespace AlgoritmosDePesquisa
     {
         public static void buscaBinaria(List<DataSetEl> dataSet, long roomId)
         {
-            int loops = 0;
-            int index = buscaBinaria(dataSet,roomId,0,dataSet.Count-1, ref loops);
+            int loops = 0,index = 0;
+            index =  buscaBinaria(dataSet, roomId, 0, dataSet.Count - 1, ref loops);
+            Console.WriteLine("Comparações = "+loops);
+
+            if(index != -1)
+            {
+                DataSetEl.printroom(dataSet[index]);
+            }
+            else
+            {
+                DataSetEl.printroom(null);
+            }
             
-            Console.WriteLine(dataSet[index]);
-            Console.WriteLine(loops);
+
         }
 
         private static int buscaBinaria(List<DataSetEl> dataset, long roomId, int menor, int maior, ref int loops)

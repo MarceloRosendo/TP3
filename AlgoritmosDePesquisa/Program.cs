@@ -8,24 +8,62 @@ namespace AlgoritmosDePesquisa
     {
         public static void Main(string[] args)
         {
-            List<DataSetEl> dataSet = new List<DataSetEl>();
-            ArvoreBinaria arvoreBinaria = new ArvoreBinaria();
-            readFileContent(ref dataSet);
-            // busca sequencial
-            
-            Console.WriteLine("Busca sequencial ");
-            BuscaSequencial.buscaSequencial(dataSet, 4659998);
-            // busca binária
-            List<DataSetEl> dataSetSort = BubbleSort.sort(dataSet);
-            Console.WriteLine("Busca binária "); 
-            BuscaBinaria.buscaBinaria(dataSetSort, 4659998);
-            
-            // arvore binária
-            instaciaArvore(ref arvoreBinaria, dataSet);
-            Console.WriteLine("Arvore binária "); 
-            Node retorno = arvoreBinaria.pesquisar(4659998);
+            List<DataSetEl> dataSetArray = new List<DataSetEl>();
+            readFileContent(ref dataSetArray);
 
-            // 
+            int op = 1;
+            long room = 0;
+
+            while (op >0 && op <5)
+            {
+                Console.Clear();
+                Console.WriteLine("Digite sua opção ");
+                Console.WriteLine("1-> Pesquisa Sequencial");
+                Console.WriteLine("2-> Pesquisa Binária ");
+                Console.WriteLine("3-> Árvore Binária ");
+                Console.WriteLine("4-> Lista Encadeada ");
+                Console.WriteLine("Outra opção para sair");
+                op = int.Parse(Console.ReadLine());
+
+                Console.Clear();
+
+                if (op > 0 && op < 5)
+                {
+                    Console.WriteLine("Digite o id do quarto");
+                    room = long.Parse(Console.ReadLine());
+                }
+             
+                if (op == 1)
+                {
+                    BuscaSequencial.buscaSequencial(dataSetArray, room);
+                }
+                else if (op == 2)
+                {
+
+                    BuscaBinaria.buscaBinaria(BubbleSort.sort(dataSetArray), room);
+                }
+                else if(op == 3)
+                {
+                    ArvoreBinaria arvore = new ArvoreBinaria();
+                    instaciaArvore(ref arvore, dataSetArray);
+                    arvore.pesquisar(room);
+                }
+                else if(op == 4)
+                {
+                    Lista listaencadeada = new Lista();
+                    instancialistaEnc(ref listaencadeada, dataSetArray);
+                    listaencadeada.pesquisar(room);
+                }
+                Console.ReadKey();
+            }
+        }
+        
+        static void instancialistaEnc(ref Lista listaencadeada, List<DataSetEl> dataset)
+        {
+            foreach (DataSetEl elemento in dataset)
+            {
+                listaencadeada.inserirElemento(elemento);
+            }
         }
 
         static void instaciaArvore(ref ArvoreBinaria arvoreBinaria, List<DataSetEl> dataset)
