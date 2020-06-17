@@ -5,6 +5,10 @@ namespace AlgoritmosDePesquisa
 {
     public class BuscaSequencial
     {
+        /**
+         * Busca em cada elemento do dataset (desordenado) pelo room_id passado como parâmetro
+         * A variável loops é o auxiliar que conta as comparações
+         */
         public static void buscaSequencial(List<DataSetEl> dataSet, long roomId)
         {
             int loops = 0;

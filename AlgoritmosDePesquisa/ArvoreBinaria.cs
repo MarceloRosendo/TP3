@@ -2,6 +2,11 @@ using System;
 
 namespace AlgoritmosDePesquisa
 {
+    /**
+         * Estrutura de árvore que adiciona os nodos e busca utilizando sua organização para dividir os ramos e identificar
+         * o room_id desejado     
+         * A variável loops é o auxiliar que conta as comparações
+         */
     public class ArvoreBinaria
     {
         private Node raiz; 
@@ -35,6 +40,11 @@ namespace AlgoritmosDePesquisa
             return raizArvore;
         }
 
+        /**
+         * Faz uma chamada de uma função recursiva que irá dividir os ramos da arvore aproximando-se
+         * do valor buscado.
+         * 
+         */
         public Node pesquisar(long roomId)
         {
             int loops = 0;

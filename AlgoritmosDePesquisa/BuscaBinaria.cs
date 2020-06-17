@@ -5,6 +5,9 @@ namespace AlgoritmosDePesquisa
 {
     public class BuscaBinaria
     {
+        /*
+         * Função que encapsula as chamadas recursivas que irão identificar o quarto buscado
+         */
         public static void buscaBinaria(List<DataSetEl> dataSet, long roomId)
         {
             int loops = 0,index = 0;
@@ -23,6 +26,9 @@ namespace AlgoritmosDePesquisa
 
         }
 
+        /*
+         * Algoritmo recursivo que divide o dataset no meio para cada iteração e assim se aproxima do elemento buscado
+         */
         private static int buscaBinaria(List<DataSetEl> dataset, long roomId, int menor, int maior, ref int loops)
         {
             if (menor > maior)
